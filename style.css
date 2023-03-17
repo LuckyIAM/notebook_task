@@ -1,20 +1,18 @@
-.table {
-    display: grid;
-    grid-template-columns: 3fr repeat(15, 1fr);
-    border: solid 1px gray; 
-    
-}
 .draw-cell{
     border: solid 1px gray; 
-    padding: 4px 7px;
-    position: relative;
-    right: 0px;
-    bottom: 0px;
-    font-size: 10px;
+    text-align: end;
+    font-size: 14px;
+    color: gray;
+}
+.draw-head-cell{
+    border: solid 1px gray; 
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
 }
 .draw-row{
     display: grid;
-    grid-template-columns: 3fr repeat(15, 1fr);
+    grid-template-columns: 2fr repeat(7, 1fr);
     border: solid 1px rgb(80, 75, 75); 
 }
 .color-green{

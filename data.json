@@ -13,16 +13,16 @@
     "name": "Человек1",
     "data_time": [
         {
-            "start": "7.03.2023",
+            "start": "6.03.2023",
             "end": "8.03.2023",
             "status": "work",
             "tiket": "something"
         },
         {
             "start": "8.03.2023",
-            "end": "9.03.2023",
+            "end": "10.03.2023",
             "status": "work",
-            "tiket": "something"
+            "tiket": "123"
         }
     ]
 },
@@ -30,8 +30,8 @@
     "name": "Человек2",
     "data_time": [
         {
-            "start": "1.04.2023",
-            "end": "2.04.2023",
+            "start": "8.04.2023",
+            "end": "12.04.2023",
             "status": "vacation",
             "tiket": "something2"
         }
