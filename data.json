@@ -1,0 +1,51 @@
+[
+    {
+        "name": "ФИО сотрудника",
+        "data_time": [
+            {
+                "start": "",
+                "end": "",
+                "status": ""
+            }
+        ]
+    },
+{
+    "name": "Человек1",
+    "data_time": [
+        {
+            "start": "7.03.2023",
+            "end": "8.03.2023",
+            "status": "work",
+            "tiket": "something"
+        },
+        {
+            "start": "8.03.2023",
+            "end": "9.03.2023",
+            "status": "work",
+            "tiket": "something"
+        }
+    ]
+},
+{
+    "name": "Человек2",
+    "data_time": [
+        {
+            "start": "1.04.2023",
+            "end": "2.04.2023",
+            "status": "vacation",
+            "tiket": "something2"
+        }
+    ]
+},
+{
+    "name": "Человек3",
+    "data_time": [
+        {
+            "start": "7.04.2023",
+            "end": "9.0.2023",
+            "status": "work",
+            "tiket": "something3"
+        }
+    ]
+}
+]
