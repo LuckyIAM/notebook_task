@@ -21,3 +21,9 @@
 .color-red{
     background: rgba(255, 0, 0, 0.302);
 }
+.position-blok{
+    color: darkcyan;
+    font-style: 18px;
+    font-weight: 600;
+    padding: 15px 0;
+}
