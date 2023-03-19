@@ -1,0 +1,24 @@
+.row{
+    display: flex;
+    width: calc((64px *7) + 154px ) ;
+}
+.cell{
+    height: 60px;
+    width: 60px;
+    border: solid 1px blue;
+    margin: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cell-title{
+    width: 150px;
+    font-size: 16px;
+    font-weight: 800;
+}
+.work{
+    background: green;
+}
+.vacation{
+    background: red;
+}
