@@ -12,6 +12,8 @@ const Context =  React.createContext({
     active: false, 
     setActive: () => {},
     mapTable:[], 
-    setMapTable: () => {}
+    setMapTable: () => {},
+    rowUpdate: "", 
+    setRowUpdate: () => {}
 })
 export default Context;

@@ -3,8 +3,10 @@ import RowDraw from "../Row";
 import dataEvent from "../../assets/dataEvent.json"
 
 export default () =>{
+    const [rowUpdate, setRowUpdate] = useState()
     const [mapTable, setMapTable] = useState(localStorage.getItem("array-names") ? localStorage.getItem("array-names"): [])
     const arrName = [];
+    
 
     useEffect(() => {
         for(let j = 0; j < dataEvent.length; j++){
@@ -22,8 +24,14 @@ export default () =>{
             localStorage.setItem("array-names", mapTable)
             return mapTable
         })
+        setRowUpdate(()=>{
+            // console.log(e.target);
+        },[])
         
     }, [])
+
+    console.log(document.body);
+
     return<div className="container-table">
         <h1>График нагрузки</h1>
         <RowDraw 

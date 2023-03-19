@@ -11,13 +11,12 @@ export default ({number, date, name, status, tiket, width, text_opportunity}) =>
     const {eventNumber, setEventNumber} = useContext(Context);
     
     const stWidth = {
-        width: `${width * 64}px`
+        width: innerWidth < 650 ? "443px" : "598px"
     }
 
     const stBg = {
         visibility: status === "work" ? "visible" : "hidden",
-        position: "absolute",
-        right: `calc((64px * 7) - 70px)`  
+        padding: innerWidth < 650 ? "10px" : "50px"
     }
 
     function dragStartHandler(e){
@@ -56,6 +55,7 @@ export default ({number, date, name, status, tiket, width, text_opportunity}) =>
     }
 
     return <div className="container-card-event" 
+    style={stWidth}
     onDragStart={(e) => dragStartHandler(e)}
     onDragLeave={(e) => dragLeaveHandler(e)}
     onDragEnd={(e) => dragEndHandler(e)}
@@ -76,7 +76,7 @@ export default ({number, date, name, status, tiket, width, text_opportunity}) =>
         </div>
         <button style={stBg} onClick={e => {
             e.preventDefault();
-            localStorage.setItem("change-event", `{"name": "${eventName}","start": "${eventDate.split("-")[0]}.2023","end": "${eventDate.split("-")[1]}.2023"}`)
+            localStorage.setItem("change-event", `{"name": "${name}","start": "${date.split("-")[0]}.2023","end": "${date.split("-")[1]}.2023"}`)
             goToChangeEvent("/change_event")
             }}>
             {text_opportunity}
