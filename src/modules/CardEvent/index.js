@@ -11,12 +11,12 @@ export default ({number, date, name, status, tiket, width, text_opportunity}) =>
     const {eventNumber, setEventNumber} = useContext(Context);
     
     const stWidth = {
-        width: innerWidth < 650 ? "443px" : "598px"
+        width: innerWidth < 650 ? "443px" : "598px",
     }
 
     const stBg = {
         visibility: status === "work" ? "visible" : "hidden",
-        padding: innerWidth < 650 ? "10px" : "50px"
+        
     }
 
     function dragStartHandler(e){

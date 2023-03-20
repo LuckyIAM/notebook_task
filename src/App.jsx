@@ -37,7 +37,7 @@ export default () =>{
     <Modal isActive={active} chengeActive={setActive}/>
     <Routes>
         <Route path="/change_event" element={<ChangeEvent/>}/>
-        <Route path="/" element={<Main/>}/>
+        <Route path="/notebook_task/" element={<Main/>}/>
     </Routes>
     </Context.Provider>
 }
