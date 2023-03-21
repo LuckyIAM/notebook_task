@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect} from "react";
 import Context from "../../Context";
 import "./style.css";
 
 
-export default({name, date1, date2, date3, date4, date5, date6, date7}) => {
+export default({number, name, date1, date2, date3, date4, date5, date6, date7}) => {
+    const {events, setEvents} = useContext(Context)
     const {eventName, setEventName} = useContext(Context);
     const {eventDate, setEventDate} = useContext(Context);
     const {eventStatus, setEventStatus} = useContext(Context);
     const {active, setActive} = useContext(Context);
-    
-
+  
+  
     const stWidth = {
         width: innerWidth < 650 ? "45px" : "60px",
         fontSize: innerWidth < 650 ? "12px" : "16px"
@@ -41,7 +42,6 @@ export default({name, date1, date2, date3, date4, date5, date6, date7}) => {
         }
     }
 
-    console.log(eventStatus, active);
     function dragStartHandler(e){
         console.log('cardStart', e.target);
     }
@@ -74,7 +74,7 @@ export default({name, date1, date2, date3, date4, date5, date6, date7}) => {
         }
     }
 
-    return <div className="row"
+    return <div className={`row${number} row`}
     onDragStart={(e) => dragStartHandler(e)}
     onDragLeave={(e) => dragLeaveHandler(e)}
     onDragEnd={(e) => dragEndHandler(e)}

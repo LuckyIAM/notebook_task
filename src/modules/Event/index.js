@@ -1,21 +1,25 @@
-import React from "react";
+import React,{useContext} from "react";
+import Context from "../../Context";
 import CardEvent from "../CardEvent";
-import dataEvent from "../../assets/dataEvent.json"
+import { PenFill, CheckCircleFill } from "react-bootstrap-icons";
 import "./style.css"
 
 export default () => {
-    
+    const {events, setEvents} = useContext(Context)
+
+    console.log(events);
     return <div className="container-events">
         <h1 className="title">Список события</h1>
-        {dataEvent && dataEvent.map((event, i) => <CardEvent
+        {events && events.map((e, i) => <CardEvent
         key={i}
         number={i+1}
-        date={`${event.start.split('.')[0]}.${event.start.split('.')[1]}-${event.end.split('.')[0]}.${event.end.split('.')[1]}`}
-        name={event.name}
-        status={event.status}
-        tiket={event.tiket}
-        width={`${+event.end.split('.')[0]}`-`${+event.start.split('.')[0]}`}
-        text_opportunity={event.status === "work" ? "Изменить" : null}
+        date={`${e.start.split('.')[0]}.${e.start.split('.')[1]}-${e.end.split('.')[0]}.${e.end.split('.')[1]}`}
+        name={e.name}
+        status={e.status}
+        tiket={e.tiket}
+        width={`${+e.end.split('.')[0]}`-`${+e.start.split('.')[0]}`}
+        single_change={e.status === "work" ? <PenFill/> : null}
+        single_adopt={e.status === "work" ? <CheckCircleFill/> : null}
         /> )}
     </div>
 }

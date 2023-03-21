@@ -1,11 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route} from "react-router-dom";
-
+import dataEvent from "./assets/dataEvent.json"
 import Context from "./Context";
 import Main from "./pages/Main";
 import Modal from "./modules/Modal";
-import ChangeEvent from "./pages/ChangeEvent"
 
 
 export default () =>{
@@ -14,11 +13,21 @@ export default () =>{
     const [eventStatus, setEventStatus] = useState(localStorage.getItem("event-status") ? localStorage.getItem("event-status") : "")
     const [eventNumber, setEventNumber] = useState(localStorage.getItem("event-number") ? localStorage.getItem("event-number") : "")
     const [active, setActive] = useState(false)
-    const [mapTable, setMapTable] = useState(localStorage.getItem("array-names") ? localStorage.getItem("array-names"): [])
     const [rowUpdate, setRowUpdate] = useState()
+    const [events, setEvents] = useState(JSON.parse(localStorage.getItem("events")) || [])
+    const [flag, changeFlag] = useState(true)
 
+    useEffect(() => {
+        localStorage.setItem("events", JSON.stringify(dataEvent))
+    },[events])
+    
 
+    
     return <Context.Provider value={{
+        events: events, 
+        setEvents: setEvents,
+        flag: flag, 
+        changeFlag: changeFlag,
         eventName: eventName, 
         setEventName: setEventName,
         eventDate: eventDate, 
@@ -29,14 +38,13 @@ export default () =>{
         setEventNumber: setEventNumber,
         active: active, 
         setActive: setActive,
-        mapTable:mapTable, 
-        setMapTable: setMapTable,
         rowUpdate: rowUpdate, 
-        setRowUpdate: setRowUpdate
+        setRowUpdate: setRowUpdate,
+        events: events, 
+        setEvents: setEvents
     }}> 
     <Modal isActive={active} chengeActive={setActive}/>
     <Routes>
-        <Route path="/change_event" element={<ChangeEvent/>}/>
         <Route path="/notebook_task/" element={<Main/>}/>
     </Routes>
     </Context.Provider>

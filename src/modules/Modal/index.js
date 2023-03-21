@@ -10,7 +10,6 @@ export default ({isActive, chengeActive}) => {
     const {eventStatus, setEventStatus} = useContext(Context)
 
 
-    console.log(isActive);
     return <div className={isActive ? "box-popup active" : "box-popup"}>
         <div className="popup">
             <div className="close-popup" 
@@ -20,7 +19,7 @@ export default ({isActive, chengeActive}) => {
                 }}>
                     <XCircleFill/>
             </div>
-            <div className="text">{eventStatus === "work" ? `В  периуд ${eventDate} у ${eventName} занят. Меняите даты события в зависимость от нагружености!`: `В  периуд ${eventDate} у ${eventName} отпуск отпуск нельзя изменять!`}  </div>
+            <div className="text">{eventStatus === "work" ? `В  периуд ${eventDate} ${eventName} занят. Меняите даты события в зависимость от нагружености!`: `В  периуд ${eventDate}  ${eventName} в отпуск нельзя изменять!`}  </div>
         </div>
     </div>
 }

@@ -1,6 +1,10 @@
 import React from "react";
 
 const Context =  React.createContext({
+    events: [], 
+    setEvents: ()=>{},
+    flag: false, 
+    changeFlag: ()=>{},
     eventName: "", 
     setEventName: () => {},
     eventDate: "", 
@@ -11,8 +15,6 @@ const Context =  React.createContext({
     setEventNumber: () => {},
     active: false, 
     setActive: () => {},
-    mapTable:[], 
-    setMapTable: () => {},
     rowUpdate: "", 
     setRowUpdate: () => {}
 })

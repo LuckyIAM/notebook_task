@@ -1,36 +1,31 @@
-import React, { useState, useEffect} from "react"
+import React, { useState, useEffect, useRef, useContext} from "react"
+import Context from "../../Context";
 import RowDraw from "../Row";
-import dataEvent from "../../assets/dataEvent.json"
+
 
 export default () =>{
-    const [rowUpdate, setRowUpdate] = useState()
-    const [mapTable, setMapTable] = useState(localStorage.getItem("array-names") ? localStorage.getItem("array-names"): [])
+    const {events, setEvents} = useContext(Context)
     const arrName = [];
+    const arrRef = useRef()
+    
+    
     
 
     useEffect(() => {
-        for(let j = 0; j < dataEvent.length; j++){
-            arrName.push(dataEvent[j].name)
-        }
-        
-        setMapTable(() =>{
-            for(let i = 0; i < arrName.length; i++){
-                if(!mapTable.includes(arrName[i])){
-                    mapTable.push(arrName[i])
-                }else{
-                    continue;
-                }
+        for(let j = 0; j < events.length; j++){
+            if(arrName.includes(events[j].name)){
+                continue
+            }else{
+                arrName.push(events[j].name)
             }
-            localStorage.setItem("array-names", mapTable)
-            return mapTable
-        })
-        setRowUpdate(()=>{
-            // console.log(e.target);
-        },[])
-        
+        }  
+        localStorage.setItem("names", JSON.stringify(arrName))      
     }, [])
 
-    console.log(document.body);
+    
+    useEffect(() => {
+        arrRef.current = arrName;
+    },[])
 
     return<div className="container-table">
         <h1>График нагрузки</h1>
@@ -44,9 +39,10 @@ export default () =>{
         date6={<b>День6</b>}
         date7={<b>День7</b>}
         />
-        {mapTable.split(',') ? mapTable.split(',').map((event, i) => <RowDraw
+        {localStorage.getItem("names") && JSON.parse(localStorage.getItem("names")).map((event, i) => <RowDraw
         key={i}
         name={event}
-        /> ): console.log("null")}
+        number={i}
+        /> )}
     </div>
 }
